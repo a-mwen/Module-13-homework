@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMPS 260: Module 13 Homework</title>
+<style>* { font-family: monospace; }</style>
+<script>
+//----------------//
+// Big O notation //
+//----------------//
+console.log("Big O notation");
+
+// 1. What is the worst case complexity of the following function?
+
+function hasDuplicates(arr) {
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr.length; j++) {
+      if (i !== j && arr[i] === arr[j]) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+// 2. Implement a faster version of the same function and analyze the
+//    complexity of this approach.
+
+function hasDuplicatesFast(arr) {
+  // todo
+
+  var items = {};
+  var look = false;
+
+  for(let i = 0; i < arr.length; i++) {
+
+    if(items[arr[i]]) {
+      look = true;
+      break;
+    }
+    items[arr[i]] = true;
+  }
+}
+
+
+
+//----------------------------//
+// Having fun with algorithms //
+//----------------------------//
+console.log("Having fun with algorithms");
+
+// 1. Solve http://www.spoj.com/problems/PALIN/
+
+
+function findSmallestPalindrome(k) {
+  let found = false;
+if( k >=0 && k <= 1000000){
+  while( !found ) {
+    k++;
+    numRev = k.toString();
+    numRev = numRev.split("");
+    numRev = numRev.reverse();
+    numRev = numRev.join("");
+      if(k == numRev) {
+        found = true;
+}
+}
+return k;
+}
+else {
+
+
+console.log("Enter a valid input number.");
+
+}
+
+}
+  // todo
+
+
+console.log(findSmallestPalindrome(808) === 818);
+console.log(findSmallestPalindrome(2133) === 2222);
+
+
+
+//---------//
+// Project //
+//---------//
+console.log("Project");
+
+// 1. Solve https://csacademy.com/contest/interview-archive/task/intersecting-rectangles/
+//    What is the runtime complexity of your solution?
+//    HINT: Try to break down the problems into smaller steps. For example,
+//          find a convenient way to represent rectangles and define a function
+//          that tests whether one rectangle is inside another. Then test your
+//          code on just two rectangles first to make sure it works.
+
+function main() {
+  var n = int();
+  var rectangles = new Array(n);
+  for (var i = 0; i < n; i += 1) {
+    rectangles[i] = {};
+    rectangles[i].x1 = int();
+    rectangles[i].x1 = int();
+    rectangles[i].x2 = int();
+    rectangles[i].x2 = int();
+
+  }
+  var answer = intersectingRectangles(rectangles);
+  console.log(answer);
+}
+
+function intersectingRectangles(rectangles) {
+  var N = 0;
+  var n = rectangle.length;
+  for(let i=0;i<n;i++){
+    for(let j=i+1;j<n;j++){
+      let A=rectangles[i];
+      let B=rectangles[j];
+
+if((A.x1<=B.x1 && B.x1<A.x2)||(B.x1<=A.x1 && A.x1<B.x2)){
+    if((A.y1<=B.y1 && B.y1 <A.y2) ||(B.y1<=A.y1 && A.y1 <B.y2)){
+        N++
+    }
+}
+
+}}
+return N;
+}
+function nextInt() {
+    return parseInt(nextString());
+}
+
+function nextFloat() {
+    return parseFloat(nextString());
+}
+
+function nextString() {
+    var next_string = "";
+    clearWhitespaces();
+    while (input_cursor < input_stdin.length && !isWhitespace(input_stdin[input_cursor])) {
+        next_string += input_stdin[input_cursor];
+        input_cursor += 1;
+    }
+    return next_string;
+}
+
+function nextChar() {
+    clearWhitespaces();
+    if (input_cursor < input_stdin.length) {
+        return input_stdin[input_cursor++];
+    } else {
+        return '\0';
+    }
+}
+
+process.stdin.resume();
+process.stdin.setEncoding('ascii');
+
+var input_stdin = "";
+var input_cursor = 0;
+process.stdin.on('data', function (data) { input_stdin += data; });
+process.stdin.on('end', function () { main(); });
+
+function isWhitespace(character) {
+    return ' \t\n\r\v'.indexOf(character) > -1;
+}
+
+function clearWhitespaces() {
+    while (input_cursor < input_stdin.length && isWhitespace(input_stdin[input_cursor])) {
+        // ignore the next whitespace character
+        input_cursor += 1;
+    }  
+}
+
+
+</script>
+</head>
+<body>
+  See console!
+</body>
+</html>
